@@ -1,4 +1,4 @@
-# Beecrowd
+# 🧩 Beecrowd
 
 Exercícios resolvidos do <a href='https://www.beecrowd.com.br/judge/pt'>Beecrowd</a>. 
 
