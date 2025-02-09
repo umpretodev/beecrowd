@@ -2,27 +2,47 @@
 #include <cstring>
 using namespace std; 
 
+bool isConsoant(char character) {
+    char vogals[5] = {'A', 'E', 'I', 'O', 'U'};
 
-void handleResponse(string name, int maxLength) {
-    if (name.size() > maxLength) {
-        printf("%s nao eh facil\n", name.c_str());
-        return;
+    for (char vogal : vogals) {
+        if (vogal == toupper(character)) {
+            return false;
+        }
     }
 
-    printf("%s eh facil\n", name.c_str());
+    return true;
+}
 
+bool isHardName(string name) {
+    for (int i = 0; i < name.size(); i++) {
+        int counter = 0;
+
+        for (int j = i; j <= i + 2 && j < name.size(); j++) {
+            char character = name[j];
+
+            if (isConsoant(character)) counter++;
+            else break;
+
+            if (counter == 3) return true;
+        }
+
+    }
+
+    return false;
 }
 
 
 int main() {
-    string name; 
-    int number; 
+    int n;
+    cin >> n;
 
-    cin >> number;
-    
-    while (number--) {
+    while (n--) {
+        string name; 
         cin >> name;
-        handleResponse(name, 46);
+
+        if (isHardName(name)) printf("%s nao eh facil\n", name.c_str());
+        else printf("%s eh facil\n", name.c_str());
     }
 
     return 0;
