@@ -1,25 +1,26 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int resolvePuzzle(int expectedResponse, int responses[]) {
+int handleAccRightValues(int expectedValue, vector<int> values) {
     int acc = 0;
 
-    for (int i = 0; i < 4; i++) {
-        int response = responses[i];
-
-        if (response == expectedResponse) acc++;
-
+    for (int value : values) {
+        if (value == expectedValue) acc++;
     }
-    return acc;  
+
+    return acc;
 }
 
 int main() {
-    int expectedResponse; 
-    int responses[4];
+    int expectedValue; 
+    vector<int> values(5);
 
-    for (int i = 0; i < 4; i++) {
-        cin >> responses[i];
+    cin >> expectedValue;
+
+    for (int i = 0; i < 5; i++) {
+        cin >> values[i];
     }
 
-    printf("%d\n", resolvePuzzle(expectedResponse, responses));
+    cout << handleAccRightValues(expectedValue, values) << endl;
 }
